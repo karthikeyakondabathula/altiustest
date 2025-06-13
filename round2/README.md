@@ -2,9 +2,10 @@
 # To Do App
 
 The Code features:
--Add Task and it's priority
--Mark/Unmark Task
--Delete Task
+- Add Task and it's priority
+- Mark/Unmark Task
+- Delete Tasks
+- Filter Tasks
 
 - Auto sort the task based on the PRIORITY followed by the DATE
 
