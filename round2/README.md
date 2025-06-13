@@ -7,6 +7,7 @@ The Code features:
 - Delete Tasks
 - Filter Tasks
 - Progress Bar to glance the task progression
+- PERSISTANT STORAGE implementation using SQL DATABASE
 
 - Auto sort the task based on the PRIORITY followed by the DATE
 
