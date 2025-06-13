@@ -2,6 +2,7 @@
 #of elements with reference to original array order to optimally update the window
 #while keeping it sorted for finding median easily.
 
+#Bisect module provides methods to efficiently search, insert elements into a sorted array 
 import bisect
 
 #Input for Value of Window Size
