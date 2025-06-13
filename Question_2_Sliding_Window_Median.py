@@ -2,6 +2,8 @@
 #of elements with reference to original array order to optimally update the window
 #while keeping it sorted for finding median easily.
 
+#In short saves time by not having to sort the window at each slide
+
 #Bisect module provides methods to efficiently search, insert elements into a sorted array 
 import bisect
 
