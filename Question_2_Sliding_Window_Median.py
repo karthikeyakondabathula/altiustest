@@ -1,3 +1,7 @@
+#Solution based on in-place insertion of new elements into the window and deletition of elements with reference to original array order to optimally update the window while keeping it sorted for finding median easily.
+
+import bisect
+
 #Input for Value of Window Size
 k = int(input())
 #Input Array
@@ -10,22 +14,18 @@ ans = []
 
 #Initial Case - Manual Handling using .copy() to avoid reference issues
 frame = a[:k]
-x = frame.copy()
-x.sort()
+frame.sort()
 mid = k//2
 
-ans.append(x[mid])
+ans.append(frame[mid])
 
 
-#Main Logic
-for i in range(1, n-k+1):
-    frame.pop(0)
-    frame.append(a[i+k-1])
-    x = frame.copy()
-    x.sort()
-    ans.append(x[mid])
+#Main Logic to insert new element into frame via binary insertion method using insort method by bisect and removal of outgoing element with reference to original array for an optimal insertion and deletion of elements into the window
+for i in range(k, n):
+    frame.remove(a[i-k])
+    bisect.insort(frame,a[i])
+    ans.append(frame[mid])
 
 #Print Output
 print(ans)
-
 
