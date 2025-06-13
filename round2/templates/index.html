@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+       <h3>
+
+        <img src="{{ url_for('static', filename='task.png') }}" width="100px" style="float:right;" />
+           </h3>
+
+        <h1>Simple To Do List App</h1>
+
+
+        <h2>Total : {{total}} Done : {{done}}</h2>
+        <progress id="file" value = {{done}} max = {{total}}> </progress>
+
+        <form method="POST">
+            <input type="text" name="taskname" placeholder="Task Name" required>
+            <input type="number" name="priority" placeholder="Priority" required>
+            <input type="date"  name="datepicker" placeholder="Date" required>
+            <button class="button-19" type="submit">Add</button>
+        </form>
+
+        <h4>
+            Filters: &nbsp;&nbsp;<a href="{{ url_for('donefilter') }}">Done</a> &nbsp;
+            <a href="{{ url_for('pendingfilter') }}">Pending</a>&nbsp;
+            <a href="{{ url_for('allfilter') }}">All</a>
+        </h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Priority</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Mark as Done</th>
+                    <th>Remove Task</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td><a href="{{ url_for('mark', item_id=item[0]) }}">✅</a> &nbsp;<a href="{{ url_for('unmark', item_id=item[0]) }}">❌</a></td>
+                    <td><a href="{{ url_for('delete', item_id=item[0]) }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
